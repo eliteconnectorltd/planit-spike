@@ -1,0 +1,38 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(PYTHONPATH=src python -c \"import planit_spike; from planit_spike import cli, runner, fetch, report, portal_detect, paths, throttle, config, types; print\\('import OK, version', planit_spike.__version__\\)\")",
+      "Bash(PYTHONPATH=src python -c \"from planit_spike.runner import run; import inspect; print\\('run params:', list\\(inspect.signature\\(run\\).parameters\\)\\)\")",
+      "Bash(PYTHONPATH=src python -m pytest tests/test_portal_detect.py tests/test_paths.py tests/test_fetch.py -v)",
+      "Bash(python -m pip --version)",
+      "Bash(python -c \"import pytest\")",
+      "Bash(python -c \"import httpx; print\\('httpx', httpx.__version__\\)\")",
+      "Bash(python -c \"import certifi; print\\('certifi', certifi.__version__\\)\")",
+      "Bash(pip install *)",
+      "Bash(PYTHONPATH=src python -m pytest tests/ -v)",
+      "Read(//c/projects/planit-fetcher/tests/fixtures/**)",
+      "Read(//c/projects/planit-fetcher/**)",
+      "Bash(cp \"/c/projects/planit-fetcher/tests/fixtures/sample_planit_created_list.json\" tests/fixtures/sample_planit_created_list.json)",
+      "Bash(cp \"/c/projects/planit-fetcher/tests/fixtures/sample_planit_detail.json\"       tests/fixtures/sample_planit_detail.json)",
+      "Bash(python -c ' *)",
+      "Read(//c/projects/planit-fetcher/docs/**)",
+      "Bash(python -)",
+      "Bash(PYTHONPATH=src python -m planit_spike.cli --input sample_jobs.json --output-dir output)",
+      "Bash(sort -k2)",
+      "Bash(PYTHONPATH=src python -m planit_spike.cli --input sample_jobs.json --output-dir /c/Users/DIVYAN~1/AppData/Local/Temp/claude/c--projects-planit-spike/8a2b998e-01a8-48d0-b1aa-82c8cc26ec13/scratchpad/midkent_probe --insecure-hosts pa.midkent.gov.uk)",
+      "Bash(PYTHONPATH=src python -c \"import planit_spike; from planit_spike.portal_detect import derive_urls; from planit_spike import config; print\\('import OK'\\); print\\('FETCH_KINDS:', config.FETCH_KINDS\\); print\\('derive sample keys:', list\\(derive_urls\\({'url':'https://x/applicationDetails.do?keyVal=K'}\\)\\)\\)\")",
+      "Bash(PYTHONPATH=src python -m planit_spike.cli --input sample_jobs.json --output-dir output-extension --insecure-hosts pa.midkent.gov.uk)",
+      "Bash(PYTHONPATH=src python -m pytest tests/ -q)",
+      "Bash(PYTHONPATH=src python -c \"from planit_spike.report import build_daily_report, write_daily_report; print\\('report imports OK \\(no cycle\\)'\\)\")",
+      "Bash(PYTHONPATH=src python -c \"from planit_spike.planit_client import fetch_created_raw, fetch_created, _fetch_feed_raw; print\\('planit_client imports OK'\\)\")",
+      "Bash(PYTHONPATH=src python -c \"from planit_spike.daily import run_daily, _write_planit_json, _build_planit_client; print\\('daily imports OK'\\)\")",
+      "Bash(PYTHONPATH=src python -c ' *)",
+      "Bash(PYTHONPATH=src python -m planit_spike.cli run --date 2026-07-10 --output-dir output-live-drybatch1 --limit 3 --insecure-hosts pa.midkent.gov.uk --verbose)",
+      "Bash(sort -k3)",
+      "Bash(PYTHONPATH=src python -)",
+      "Bash(PYTHONPATH=src python -m pytest tests/test_integration.py -q --log-cli-level=INFO)",
+      "Bash(PYTHONPATH=src python -m pytest tests/test_integration.py -q)",
+      "Bash(PYTHONPATH=src python -m pytest tests/test_integration.py -q -s)"
+    ]
+  }
+}

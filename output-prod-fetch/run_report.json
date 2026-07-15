@@ -1,0 +1,351 @@
+{
+  "totals": {
+    "jobs": 6,
+    "supported": 5,
+    "skipped": 1,
+    "fetches_attempted": 20,
+    "fetches_ok": 20,
+    "documents_attempted": 32,
+    "documents_ok": 12,
+    "documents_failed": 20,
+    "documents_total_bytes": 14150615,
+    "records_with_pagination": 0
+  },
+  "per_council": {
+    "Bradford": {
+      "details": "1/1",
+      "contacts": "1/1",
+      "dates": "1/1",
+      "docs": "1/1",
+      "documents_ok": 0,
+      "documents_failed": 10,
+      "documents_total_bytes": 0
+    },
+    "Cornwall": {
+      "details": "1/1",
+      "contacts": "1/1",
+      "dates": "1/1",
+      "docs": "1/1",
+      "documents_ok": 12,
+      "documents_failed": 7,
+      "documents_total_bytes": 14150615
+    },
+    "MidKent": {
+      "details": "1/1",
+      "contacts": "1/1",
+      "dates": "1/1",
+      "docs": "1/1",
+      "documents_ok": 0,
+      "documents_failed": 3,
+      "documents_total_bytes": 0
+    },
+    "Horsham": {
+      "details": "1/1",
+      "contacts": "1/1",
+      "dates": "1/1",
+      "docs": "1/1",
+      "documents_ok": 0,
+      "documents_failed": 0,
+      "documents_total_bytes": 0
+    },
+    "Knowsley": {
+      "details": "1/1",
+      "contacts": "1/1",
+      "dates": "1/1",
+      "docs": "1/1",
+      "documents_ok": 0,
+      "documents_failed": 0,
+      "documents_total_bytes": 0
+    }
+  },
+  "error_reasons": {},
+  "timing": {
+    "wall_time_seconds": 102.601,
+    "average_seconds_per_fetch": 5.13
+  },
+  "jobs": [
+    {
+      "council": "Bradford",
+      "uid": "26/02066/FUL",
+      "supported": true,
+      "skip_reason": null,
+      "fetches": {
+        "details": {
+          "council": "Bradford",
+          "uid": "26/02066/FUL",
+          "kind": "details",
+          "url": "https://planning.bradford.gov.uk/online-applications/applicationDetails.do?activeTab=summary&keyVal=TGENU6DHINE00",
+          "status_code": 200,
+          "saved_path": "output-prod-fetch\\Bradford\\26_02066_FUL\\details.html",
+          "byte_size": 42683,
+          "error": null
+        },
+        "contacts": {
+          "council": "Bradford",
+          "uid": "26/02066/FUL",
+          "kind": "contacts",
+          "url": "https://planning.bradford.gov.uk/online-applications/applicationDetails.do?activeTab=contacts&keyVal=TGENU6DHINE00",
+          "status_code": 200,
+          "saved_path": "output-prod-fetch\\Bradford\\26_02066_FUL\\contacts.html",
+          "byte_size": 35795,
+          "error": null
+        },
+        "dates": {
+          "council": "Bradford",
+          "uid": "26/02066/FUL",
+          "kind": "dates",
+          "url": "https://planning.bradford.gov.uk/online-applications/applicationDetails.do?activeTab=dates&keyVal=TGENU6DHINE00",
+          "status_code": 200,
+          "saved_path": "output-prod-fetch\\Bradford\\26_02066_FUL\\dates.html",
+          "byte_size": 48399,
+          "error": null
+        },
+        "docs": {
+          "council": "Bradford",
+          "uid": "26/02066/FUL",
+          "kind": "docs",
+          "url": "https://planning.bradford.gov.uk/online-applications/applicationDetails.do?activeTab=documents&keyVal=TGENU6DHINE00",
+          "status_code": 200,
+          "saved_path": "output-prod-fetch\\Bradford\\26_02066_FUL\\docs.html",
+          "byte_size": 44720,
+          "error": null
+        }
+      },
+      "documents": {
+        "ok": 0,
+        "failed": 10,
+        "total_bytes": 0,
+        "pagination_detected": false
+      }
+    },
+    {
+      "council": "Cornwall",
+      "uid": "PA26/03485",
+      "supported": true,
+      "skip_reason": null,
+      "fetches": {
+        "details": {
+          "council": "Cornwall",
+          "uid": "PA26/03485",
+          "kind": "details",
+          "url": "https://planning.cornwall.gov.uk/online-applications/applicationDetails.do?activeTab=summary&keyVal=TFCDXTFGGSY00",
+          "status_code": 200,
+          "saved_path": "output-prod-fetch\\Cornwall\\PA26_03485\\details.html",
+          "byte_size": 36567,
+          "error": null
+        },
+        "contacts": {
+          "council": "Cornwall",
+          "uid": "PA26/03485",
+          "kind": "contacts",
+          "url": "https://planning.cornwall.gov.uk/online-applications/applicationDetails.do?activeTab=contacts&keyVal=TFCDXTFGGSY00",
+          "status_code": 200,
+          "saved_path": "output-prod-fetch\\Cornwall\\PA26_03485\\contacts.html",
+          "byte_size": 29155,
+          "error": null
+        },
+        "dates": {
+          "council": "Cornwall",
+          "uid": "PA26/03485",
+          "kind": "dates",
+          "url": "https://planning.cornwall.gov.uk/online-applications/applicationDetails.do?activeTab=dates&keyVal=TFCDXTFGGSY00",
+          "status_code": 200,
+          "saved_path": "output-prod-fetch\\Cornwall\\PA26_03485\\dates.html",
+          "byte_size": 36762,
+          "error": null
+        },
+        "docs": {
+          "council": "Cornwall",
+          "uid": "PA26/03485",
+          "kind": "docs",
+          "url": "https://planning.cornwall.gov.uk/online-applications/applicationDetails.do?activeTab=documents&keyVal=TFCDXTFGGSY00",
+          "status_code": 200,
+          "saved_path": "output-prod-fetch\\Cornwall\\PA26_03485\\docs.html",
+          "byte_size": 47688,
+          "error": null
+        }
+      },
+      "documents": {
+        "ok": 12,
+        "failed": 7,
+        "total_bytes": 14150615,
+        "pagination_detected": false
+      }
+    },
+    {
+      "council": "MidKent",
+      "uid": "26/502512/SUB",
+      "supported": true,
+      "skip_reason": null,
+      "fetches": {
+        "details": {
+          "council": "MidKent",
+          "uid": "26/502512/SUB",
+          "kind": "details",
+          "url": "https://pa.midkent.gov.uk/online-applications/applicationDetails.do?activeTab=summary&keyVal=THEI8UTY1BA00",
+          "status_code": 200,
+          "saved_path": "output-prod-fetch\\MidKent\\26_502512_SUB\\details.html",
+          "byte_size": 30315,
+          "error": null
+        },
+        "contacts": {
+          "council": "MidKent",
+          "uid": "26/502512/SUB",
+          "kind": "contacts",
+          "url": "https://pa.midkent.gov.uk/online-applications/applicationDetails.do?activeTab=contacts&keyVal=THEI8UTY1BA00",
+          "status_code": 200,
+          "saved_path": "output-prod-fetch\\MidKent\\26_502512_SUB\\contacts.html",
+          "byte_size": 22685,
+          "error": null
+        },
+        "dates": {
+          "council": "MidKent",
+          "uid": "26/502512/SUB",
+          "kind": "dates",
+          "url": "https://pa.midkent.gov.uk/online-applications/applicationDetails.do?activeTab=dates&keyVal=THEI8UTY1BA00",
+          "status_code": 200,
+          "saved_path": "output-prod-fetch\\MidKent\\26_502512_SUB\\dates.html",
+          "byte_size": 32578,
+          "error": null
+        },
+        "docs": {
+          "council": "MidKent",
+          "uid": "26/502512/SUB",
+          "kind": "docs",
+          "url": "https://pa.midkent.gov.uk/online-applications/applicationDetails.do?activeTab=documents&keyVal=THEI8UTY1BA00",
+          "status_code": 200,
+          "saved_path": "output-prod-fetch\\MidKent\\26_502512_SUB\\docs.html",
+          "byte_size": 25491,
+          "error": null
+        }
+      },
+      "documents": {
+        "ok": 0,
+        "failed": 3,
+        "total_bytes": 0,
+        "pagination_detected": false
+      }
+    },
+    {
+      "council": "Horsham",
+      "uid": "CA/26/0084",
+      "supported": true,
+      "skip_reason": null,
+      "fetches": {
+        "details": {
+          "council": "Horsham",
+          "uid": "CA/26/0084",
+          "kind": "details",
+          "url": "https://public-access.horsham.gov.uk/public-access/applicationDetails.do?activeTab=summary&keyVal=TI3PJJIJKCY00",
+          "status_code": 200,
+          "saved_path": "output-prod-fetch\\Horsham\\CA_26_0084\\details.html",
+          "byte_size": 37066,
+          "error": null
+        },
+        "contacts": {
+          "council": "Horsham",
+          "uid": "CA/26/0084",
+          "kind": "contacts",
+          "url": "https://public-access.horsham.gov.uk/public-access/applicationDetails.do?activeTab=contacts&keyVal=TI3PJJIJKCY00",
+          "status_code": 200,
+          "saved_path": "output-prod-fetch\\Horsham\\CA_26_0084\\contacts.html",
+          "byte_size": 30438,
+          "error": null
+        },
+        "dates": {
+          "council": "Horsham",
+          "uid": "CA/26/0084",
+          "kind": "dates",
+          "url": "https://public-access.horsham.gov.uk/public-access/applicationDetails.do?activeTab=dates&keyVal=TI3PJJIJKCY00",
+          "status_code": 200,
+          "saved_path": "output-prod-fetch\\Horsham\\CA_26_0084\\dates.html",
+          "byte_size": 36609,
+          "error": null
+        },
+        "docs": {
+          "council": "Horsham",
+          "uid": "CA/26/0084",
+          "kind": "docs",
+          "url": "https://public-access.horsham.gov.uk/public-access/applicationDetails.do?activeTab=documents&keyVal=TI3PJJIJKCY00",
+          "status_code": 200,
+          "saved_path": "output-prod-fetch\\Horsham\\CA_26_0084\\docs.html",
+          "byte_size": 9269,
+          "error": null
+        }
+      },
+      "documents": {
+        "ok": 0,
+        "failed": 0,
+        "total_bytes": 0,
+        "pagination_detected": false
+      }
+    },
+    {
+      "council": "Knowsley",
+      "uid": "26/00299/FUL",
+      "supported": true,
+      "skip_reason": null,
+      "fetches": {
+        "details": {
+          "council": "Knowsley",
+          "uid": "26/00299/FUL",
+          "kind": "details",
+          "url": "https://planapp.knowsley.gov.uk/online-applications/applicationDetails.do?activeTab=summary&keyVal=TH1820IXHC400",
+          "status_code": 200,
+          "saved_path": "output-prod-fetch\\Knowsley\\26_00299_FUL\\details.html",
+          "byte_size": 31542,
+          "error": null
+        },
+        "contacts": {
+          "council": "Knowsley",
+          "uid": "26/00299/FUL",
+          "kind": "contacts",
+          "url": "https://planapp.knowsley.gov.uk/online-applications/applicationDetails.do?activeTab=contacts&keyVal=TH1820IXHC400",
+          "status_code": 200,
+          "saved_path": "output-prod-fetch\\Knowsley\\26_00299_FUL\\contacts.html",
+          "byte_size": 28813,
+          "error": null
+        },
+        "dates": {
+          "council": "Knowsley",
+          "uid": "26/00299/FUL",
+          "kind": "dates",
+          "url": "https://planapp.knowsley.gov.uk/online-applications/applicationDetails.do?activeTab=dates&keyVal=TH1820IXHC400",
+          "status_code": 200,
+          "saved_path": "output-prod-fetch\\Knowsley\\26_00299_FUL\\dates.html",
+          "byte_size": 30821,
+          "error": null
+        },
+        "docs": {
+          "council": "Knowsley",
+          "uid": "26/00299/FUL",
+          "kind": "docs",
+          "url": "https://planapp.knowsley.gov.uk/online-applications/applicationDetails.do?activeTab=documents&keyVal=TH1820IXHC400",
+          "status_code": 200,
+          "saved_path": "output-prod-fetch\\Knowsley\\26_00299_FUL\\docs.html",
+          "byte_size": 15992,
+          "error": null
+        }
+      },
+      "documents": {
+        "ok": 0,
+        "failed": 0,
+        "total_bytes": 0,
+        "pagination_detected": false
+      }
+    },
+    {
+      "council": "BracknellForest",
+      "uid": "SEARCH_ONLY",
+      "supported": false,
+      "skip_reason": "Not an Idox portal (unsupported family in this spike)",
+      "fetches": {},
+      "documents": {
+        "ok": 0,
+        "failed": 0,
+        "total_bytes": 0,
+        "pagination_detected": false
+      }
+    }
+  ]
+}

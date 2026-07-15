@@ -1,0 +1,179 @@
+{
+  "totals": {
+    "jobs": 6,
+    "supported": 5,
+    "skipped": 1,
+    "fetches_attempted": 10,
+    "details_ok": 3,
+    "docs_ok": 3
+  },
+  "per_council": {
+    "Bradford": {
+      "details": "1/1",
+      "docs": "1/1"
+    },
+    "Cornwall": {
+      "details": "1/1",
+      "docs": "1/1"
+    },
+    "MidKent": {
+      "details": "0/1",
+      "docs": "0/1"
+    },
+    "Horsham": {
+      "details": "1/1",
+      "docs": "1/1"
+    },
+    "Knowsley": {
+      "details": "0/1",
+      "docs": "0/1"
+    }
+  },
+  "error_reasons": {
+    "ConnectError": 4
+  },
+  "timing": {
+    "wall_time_seconds": 72.68,
+    "average_seconds_per_fetch": 7.268
+  },
+  "jobs": [
+    {
+      "council": "Bradford",
+      "uid": "26/02066/FUL",
+      "supported": true,
+      "skip_reason": null,
+      "details": {
+        "council": "Bradford",
+        "uid": "26/02066/FUL",
+        "kind": "details",
+        "url": "https://planning.bradford.gov.uk/online-applications/applicationDetails.do?activeTab=summary&keyVal=TGENU6DHINE00",
+        "status_code": 200,
+        "saved_path": "output\\Bradford\\26_02066_FUL\\details.html",
+        "byte_size": 42682,
+        "error": null
+      },
+      "docs": {
+        "council": "Bradford",
+        "uid": "26/02066/FUL",
+        "kind": "docs",
+        "url": "https://planning.bradford.gov.uk/online-applications/applicationDetails.do?activeTab=documents&keyVal=TGENU6DHINE00",
+        "status_code": 200,
+        "saved_path": "output\\Bradford\\26_02066_FUL\\docs.html",
+        "byte_size": 43656,
+        "error": null
+      }
+    },
+    {
+      "council": "Cornwall",
+      "uid": "PA26/03485",
+      "supported": true,
+      "skip_reason": null,
+      "details": {
+        "council": "Cornwall",
+        "uid": "PA26/03485",
+        "kind": "details",
+        "url": "https://planning.cornwall.gov.uk/online-applications/applicationDetails.do?activeTab=summary&keyVal=TFCDXTFGGSY00",
+        "status_code": 200,
+        "saved_path": "output\\Cornwall\\PA26_03485\\details.html",
+        "byte_size": 36579,
+        "error": null
+      },
+      "docs": {
+        "council": "Cornwall",
+        "uid": "PA26/03485",
+        "kind": "docs",
+        "url": "https://planning.cornwall.gov.uk/online-applications/applicationDetails.do?activeTab=documents&keyVal=TFCDXTFGGSY00",
+        "status_code": 200,
+        "saved_path": "output\\Cornwall\\PA26_03485\\docs.html",
+        "byte_size": 47700,
+        "error": null
+      }
+    },
+    {
+      "council": "MidKent",
+      "uid": "26/502512/SUB",
+      "supported": true,
+      "skip_reason": null,
+      "details": {
+        "council": "MidKent",
+        "uid": "26/502512/SUB",
+        "kind": "details",
+        "url": "https://pa.midkent.gov.uk/online-applications/applicationDetails.do?activeTab=summary&keyVal=THEI8UTY1BA00",
+        "status_code": null,
+        "saved_path": null,
+        "byte_size": null,
+        "error": "ConnectError: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1028)"
+      },
+      "docs": {
+        "council": "MidKent",
+        "uid": "26/502512/SUB",
+        "kind": "docs",
+        "url": "https://pa.midkent.gov.uk/online-applications/applicationDetails.do?activeTab=documents&keyVal=THEI8UTY1BA00",
+        "status_code": null,
+        "saved_path": null,
+        "byte_size": null,
+        "error": "ConnectError: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1028)"
+      }
+    },
+    {
+      "council": "Horsham",
+      "uid": "CA/26/0084",
+      "supported": true,
+      "skip_reason": null,
+      "details": {
+        "council": "Horsham",
+        "uid": "CA/26/0084",
+        "kind": "details",
+        "url": "https://public-access.horsham.gov.uk/public-access/applicationDetails.do?activeTab=summary&keyVal=TI3PJJIJKCY00",
+        "status_code": 200,
+        "saved_path": "output\\Horsham\\CA_26_0084\\details.html",
+        "byte_size": 37066,
+        "error": null
+      },
+      "docs": {
+        "council": "Horsham",
+        "uid": "CA/26/0084",
+        "kind": "docs",
+        "url": "https://public-access.horsham.gov.uk/public-access/applicationDetails.do?activeTab=documents&keyVal=TI3PJJIJKCY00",
+        "status_code": 200,
+        "saved_path": "output\\Horsham\\CA_26_0084\\docs.html",
+        "byte_size": 9269,
+        "error": null
+      }
+    },
+    {
+      "council": "Knowsley",
+      "uid": "26/00299/FUL",
+      "supported": true,
+      "skip_reason": null,
+      "details": {
+        "council": "Knowsley",
+        "uid": "26/00299/FUL",
+        "kind": "details",
+        "url": "https://planapp.knowsley.gov.uk/online-applications/applicationDetails.do?activeTab=summary&keyVal=TH1820IXHC400",
+        "status_code": null,
+        "saved_path": null,
+        "byte_size": null,
+        "error": "ConnectError: All connection attempts failed"
+      },
+      "docs": {
+        "council": "Knowsley",
+        "uid": "26/00299/FUL",
+        "kind": "docs",
+        "url": "https://planapp.knowsley.gov.uk/online-applications/applicationDetails.do?activeTab=documents&keyVal=TH1820IXHC400",
+        "status_code": null,
+        "saved_path": null,
+        "byte_size": null,
+        "error": "ConnectError: All connection attempts failed"
+      }
+    },
+    {
+      "council": "BracknellForest",
+      "uid": "SEARCH_ONLY",
+      "supported": false,
+      "skip_reason": "Not an Idox portal (unsupported family in this spike)",
+      "details": null,
+      "docs": null
+    }
+  ]
+}

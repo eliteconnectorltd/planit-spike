@@ -1,0 +1,68 @@
+{
+  "from": 0,
+  "records": [
+    {
+      "uid": "26/90001/FUL",
+      "area_name": "Bradford",
+      "url": "https://planning.bradford.gov.uk/online-applications/applicationDetails.do?activeTab=summary&keyVal=DAILYTEST0001",
+      "app_type": "Full",
+      "app_size": "Large",
+      "app_state": "Undecided",
+      "start_date": "2026-07-13",
+      "description": "Synthetic Idox record for daily-pipeline test (Bradford). Erection of 12 dwellings with access and landscaping.",
+      "other_fields": {
+        "docs_url": "https://planning.bradford.gov.uk/online-applications/applicationDetails.do?activeTab=documents&keyVal=DAILYTEST0001",
+        "source_url": "https://planning.bradford.gov.uk/online-applications/search.do?action=simple",
+        "agent_name": "Jane Docherty",
+        "agent_company": "Docherty Planning Associates Ltd",
+        "agent_address": "14 Market Street, Leeds, LS1 6DP",
+        "applicant_name": "Northgate Developments Ltd",
+        "app_type": "Full",
+        "app_size": "Large",
+        "n_documents": 23
+      }
+    },
+    {
+      "uid": "PA26/90002",
+      "area_name": "Cornwall",
+      "url": "https://planning.cornwall.gov.uk/online-applications/applicationDetails.do?activeTab=summary&keyVal=DAILYTEST0002",
+      "app_type": "Full",
+      "app_size": "Medium",
+      "app_state": "Undecided",
+      "start_date": "2026-07-13",
+      "description": "Synthetic Idox record for daily-pipeline test (Cornwall). Construction of 4 replacement dwellings.",
+      "other_fields": {
+        "docs_url": "https://planning.cornwall.gov.uk/online-applications/applicationDetails.do?activeTab=documents&keyVal=DAILYTEST0002",
+        "source_url": "https://planning.cornwall.gov.uk/online-applications/search.do?action=simple",
+        "agent_name": "See source",
+        "agent_company": "See source",
+        "agent_address": "See source",
+        "applicant_name": "Kernow Homes Ltd",
+        "app_type": "Full",
+        "app_size": "Medium",
+        "n_documents": 9
+      }
+    },
+    {
+      "uid": "2026/90003",
+      "area_name": "Wandsworth",
+      "url": "https://planning.wandsworth.gov.uk/Northgate/PlanningExplorer/Generic/StdDetails.aspx?PT=PlanningApplicationsOn-Line&TYPE=PL/PlanningPK.xml&PARAM0=9990003&XSLT=/Northgate/PlanningExplorer/SiteFiles/Skins/Wandsworth/xslt/PL/PLDetails.xslt&FT=PlanningApplicationDetails&PUBLIC=Y&XMLSIDE=&DAURI=PLANNING",
+      "app_type": "Full",
+      "app_size": "Small",
+      "app_state": "Undecided",
+      "start_date": "2026-07-13",
+      "description": "Synthetic Northgate (non-Idox) record for daily-pipeline test (Wandsworth). Single-storey rear extension.",
+      "other_fields": {
+        "docs_url": null,
+        "source_url": "https://planning.wandsworth.gov.uk/Northgate/PlanningExplorer/GeneralSearch.aspx",
+        "agent_name": "Paul Reeves",
+        "agent_company": "Reeves Architecture",
+        "agent_address": "3 Southlands Drive, London, SW19 5QB",
+        "applicant_name": "Mr & Mrs Holloway",
+        "app_type": "Full",
+        "app_size": "Small",
+        "n_documents": 5
+      }
+    }
+  ]
+}
