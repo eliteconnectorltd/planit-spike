@@ -1,4 +1,4 @@
-"""planit-spike: fetch raw HTML metadata for UK planning applications from Idox portals."""
+"""planit-spike: fetch raw HTML metadata  for UK planning applications from Idox portals."""
 
 from __future__ import annotations
 
