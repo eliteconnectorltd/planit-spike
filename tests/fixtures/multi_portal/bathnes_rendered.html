@@ -1,0 +1,493 @@
+<!DOCTYPE html><html lang="en" class="govuk-template no-touch"><head><style>body {transition: opacity ease-in 0.2s; } 
+body[unresolved] {opacity: 0; display: block; overflow: hidden; position: relative; } 
+</style>
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Planning Application Details</title>
+
+  <!-- favicon fix -->
+  <link rel="icon" href="../commonfiles/images/favicon.ico" type="image/x-icon">
+  <!-- favicon fix -->
+
+  <!-- toolkit styles -->
+  <link rel="stylesheet" href="../assets/toolkit/styles/toolkit.css">
+  <!-- /toolkit styles -->
+  <link href="../commonfiles/css/selectize-govuk.css" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/details.css">
+
+  <!-- fontawesome cdn -->
+  <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+  <!-- /fontawesome cdn -->
+
+  <!-- MAPS! -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.4/dist/leaflet.css">
+    <link rel="stylesheet" href="css/font-awesome5.min.css">
+    <link rel="stylesheet" href="css/leaflet.awesome-markers.css">
+
+  <!-- /initialise Common Functions -->
+  <script async="" src="https://scripts.clarity.ms/0.8.67/clarity.js"></script><script type="text/javascript" async="" src="https://www.clarity.ms/tag/p6577nusuj"></script><script type="text/javascript" async="" src="https://www.googletagmanager.com/gtag/js?id=G-ZDLG3N97SZ&amp;cx=c&amp;gtm=4e67e0"></script><script async="" src="https://www.googletagmanager.com/gtm.js?id=GTM-54CQ2RH"></script><script src="../commonfiles/js/initialiseCommonFunctions.js" type="text/javascript"></script>
+  <!-- /initialise Common Functions -->
+
+  <!-- datatables -->
+  <link rel="stylesheet" type="text/css" href="css/jquery.dataTables.min.css">
+  <!-- datatables -->
+
+<style> @-webkit-keyframes loadingoverlay_animation__rotate_right { to { -webkit-transform : rotate(360deg); transform : rotate(360deg); } } @keyframes loadingoverlay_animation__rotate_right { to { -webkit-transform : rotate(360deg); transform : rotate(360deg); } } @-webkit-keyframes loadingoverlay_animation__rotate_left { to { -webkit-transform : rotate(-360deg); transform : rotate(-360deg); } } @keyframes loadingoverlay_animation__rotate_left { to { -webkit-transform : rotate(-360deg); transform : rotate(-360deg); } } @-webkit-keyframes loadingoverlay_animation__fadein { 0% { opacity   : 0; -webkit-transform : scale(0.1, 0.1); transform : scale(0.1, 0.1); } 50% { opacity   : 1; } 100% { opacity   : 0; -webkit-transform : scale(1, 1); transform : scale(1, 1); } } @keyframes loadingoverlay_animation__fadein { 0% { opacity   : 0; -webkit-transform : scale(0.1, 0.1); transform : scale(0.1, 0.1); } 50% { opacity   : 1; } 100% { opacity   : 0; -webkit-transform : scale(1, 1); transform : scale(1, 1); } } @-webkit-keyframes loadingoverlay_animation__pulse { 0% { -webkit-transform : scale(0, 0); transform : scale(0, 0); } 50% { -webkit-transform : scale(1, 1); transform : scale(1, 1); } 100% { -webkit-transform : scale(0, 0); transform : scale(0, 0); } } @keyframes loadingoverlay_animation__pulse { 0% { -webkit-transform : scale(0, 0); transform : scale(0, 0); } 50% { -webkit-transform : scale(1, 1); transform : scale(1, 1); } 100% { -webkit-transform : scale(0, 0); transform : scale(0, 0); } } </style><script type="text/javascript" src="../commonfiles/js/commonFunctions.js?1784189404218"></script><script type="text/javascript" src="config/planningDetails_config_live.js?1784189404218"></script><link rel="import" href="../commonfiles/modules/uxheader.html?1784189404218" id="../commonfiles/modules/uxheader.html?1784189404218"><link rel="import" href="../commonfiles/modules/uxnav.html?1784189404218" id="../commonfiles/modules/uxnav.html?1784189404218"><link rel="import" href="../commonfiles/modules/uxfooter.html?1784189404218" id="../commonfiles/modules/uxfooter.html?1784189404218"><link rel="import" href="../commonfiles/modules/pagerConnectionError.html?1784189404218" id="../commonfiles/modules/pagerConnectionError.html?1784189404218"><script type="text/javascript" src="../CommonFiles/modules/formPager.js?1784189404218"></script><script type="text/javascript" src="../CommonFiles/modules/postcodeLookup/postcodeLookupCommon.js?1784189404218"></script><script type="text/javascript" src="./modules/mapLayers.js?1784189404218"></script></head>
+
+<body class="govuk-template__body  js-enabled"><noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-54CQ2RH" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+  <script>
+    document.body.className = ((document.body.className) ? document.body.className + ' js-enabled' : 'js-enabled');
+  </script>
+
+  <a href="#main-content" class="govuk-skip-link">Skip to main content</a>
+
+  <!-- Menu show/hide JS -->
+  <!-- Adapted from https://www.w3schools.com/howto/howto_js_toggle_class.asp -->
+  <!-- Need to move into menu.js and that file be imported into app.js -->
+  <script>
+    function showHideMenu() {
+      var element = document.getElementById("navigation-primary");
+
+      if (element.classList) {
+        element.classList.toggle("navigation-primary--active");
+      } else {
+        // For IE9
+        var classes = element.className.split(" ");
+        var i = classes.indexOf("navigation-primary--active");
+
+        if (i >= 0)
+          classes.splice(i, 1);
+        else
+          classes.push("navigation-primary--active");
+        element.className = classes.join(" ");
+      }
+    }
+  </script>
+  <script>
+    function checkIfIE() {
+        var ua = navigator.userAgent;
+        var browser = /Edge\/\d+/.test(ua) ? 'ed' : /MSIE 9/.test(ua) ? 'ie9' : /MSIE 10/.test(ua) ? 'ie10' : /MSIE 11/.test(ua) ? 'ie11' : /MSIE\s\d/.test(ua) ? 'ie?' : /rv\:11/.test(ua) ? 'ie11' : /Firefox\W\d/.test(ua) ? 'ff' : /Chrom(e|ium)\W\d|CriOS\W\d/.test(ua) ? 'gc' : /\bSafari\W\d/.test(ua) ? 'sa' : /\bOpera\W\d/.test(ua) ? 'op' : /\bOPR\W\d/i.test(ua) ? 'op' : typeof MSPointerEvent !== 'undefined' ? 'ie?' : ''
+        if (browser.indexOf('ie') == 0) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+</script>
+
+  <header id="global-header" role="banner">
+  
+	<!-- Menu show/hide JS -->
+	<!-- Adapted from https://www.w3schools.com/howto/howto_js_toggle_class.asp -->
+	<!-- Need to move into menu.js and that file be imported into app.js -->
+	<script>
+		function showHideMenu() {
+			var element = document.getElementById("navigation-primary");
+
+			if (element.classList) {
+				element.classList.toggle("navigation-primary--active");
+			} else {
+				// For IE9
+				var classes = element.className.split(" ");
+				var i = classes.indexOf("navigation-primary--active");
+
+				if (i >= 0)
+					classes.splice(i, 1);
+				else
+					classes.push("navigation-primary--active");
+				element.className = classes.join(" ");
+			}
+		}
+		function searchSite(searchID) {
+			var searchTerm = $(searchID).val();
+			// window.location.href = "https://www.bathnes.gov.uk/search/site/" + searchTerm
+			// window.location.href = "https://beta.bathnes.gov.uk/search?keys=" + searchTerm;
+			window.location.href = "https://www.bathnes.gov.uk/search-page?search_api_fulltext=" + searchTerm;
+		}
+
+	</script>
+
+	<div id="developmentBanner" style="display: none;">
+		<div class="govuk-phase-banner govuk-width-container">
+			<p class="govuk-phase-banner__content">
+				<strong class="govuk-tag govuk-phase-banner__content__tag" style="color: #ffffff; background: #d4351c;">
+				DEVELOPMENT ENVIRONMENT
+				</strong>
+				<span class="govuk-phase-banner__text">
+					You are on the development environment
+				</span>
+			</p>
+		</div>
+	</div>
+	<div class="header-wrapper">
+		<div class="header-global">
+			<div class="header-logo">
+				<a href="https://www.bathnes.gov.uk" id="logo" class="content">
+					<img src="../assets/toolkit/images/logos/banes-logo-withstrapline.png" alt="Bath &amp; North East Somerset Council"> </a>
+			</div>
+			<div class="header-search header-search--desktop">
+				<form id="search" class="site-search" action="javascript:searchSite('#search-site')" method="">
+					<label class="form-label visually-hidden" for="search-site">Search across the site</label>
+					<input class="form-control" id="search-site" type="text" name="search-site" placeholder=" Search bathnes.gov.uk">
+					<input class="govuk-button" id="search-site-btn" type="submit" value="Search">
+				</form>
+			</div>
+		</div>
+		<button id="js-header-toggle" class="navigation-trigger" onclick="showHideMenu()">Menu</button>
+	</div>
+	<nav role="navigation" id="navigation-primary" class="navigation-primary" aria-label="block-headermenu-menu">
+
+	
+    <h2 class="visually-hidden" id="block-headermenu-menu">Header menu</h2>
+    <ul class="navigation-primary-list">
+        <li class="navigation-primary-list__item">
+            <a href="https://www.bathnes.gov.uk">Home</a>
+        </li>
+        <li class="navigation-primary-list__item">
+            <a href="https://www.bathnes.gov.uk/services">Services</a>
+        </li>
+        <li class="navigation-primary-list__item">
+            <a href="https://beta.bathnes.gov.uk/service-disruptions">Service updates</a>
+        </li>
+        <li class="navigation-primary-list__item">
+            <a href="https://www.bathnes.gov.uk/pay">Pay for it</a>
+        </li>
+        <li class="navigation-primary-list__item">
+            <a href="https://www.bathnes.gov.uk/report-it">Report it</a>
+        </li>
+        <li class="navigation-primary-list__item">
+            <a href="https://www.bathnes.gov.uk/events">What's on</a>
+        </li>
+        <li class="navigation-primary-list__item">
+            <a href="https://www.bathnes.gov.uk/have-your-say">Have your say</a>
+        </li>
+        <li class="navigation-primary-list__item">
+            <a href="https://www.bathnes.gov.uk/webforms/nearby">Find my nearest</a>
+        </li>
+        <li class="navigation-primary-list__item">
+            <a href="https://www.bathnes.gov.uk/contact-us">Contact us</a>
+        </li>
+        <li class="navigation-primary-list__search">
+            <div class="header-search header-search--mobile">
+                <form id="search-nav" class="site-search" action="javascript:searchSite('#search-site-nav')" method="">
+                    <label class="form-label visually-hidden" for="search-site-nav">Search across the site</label>
+                    <input class="form-control" id="search-site-nav" type="text" name="search-site-nav" placeholder="Search bathnes.gov.uk">
+                    <input class="button" type="submit" value="Search">
+                </form>
+            </div>
+        </li>
+    </ul>
+</nav>
+	<div id="global-header-bar" style="position:absolute; width:100%"></div>
+
+	<script>
+		var href = location.href.toUpperCase();
+		if (href.indexOf("/LOCALHOST/") > -1 || href.indexOf("/WEBADMINTEST/") > -1 || href.indexOf("/WEBFORMSTEST/") > -1) {
+			$('#developmentBanner').show();
+		}
+	</script>
+</header>
+
+  <div class="govuk-width-container">
+    <noscript>
+      <div class="breakout-box breakout-box-primary">
+        <div class="govuk-warning-text govuk-!-margin-bottom-0">
+          <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
+          <strong class="govuk-warning-text__text">
+            Please enable JavaScript in your browser to view this page
+          </strong>
+        </div>
+      </div>
+    </noscript>
+    <div class="breakout-box breakout-box-primary" id="cookieWarning" style="display: none">
+      <div class="govuk-warning-text govuk-!-margin-bottom-0">
+        <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
+        <strong class="govuk-warning-text__text">
+          Please unblock cookies in your browser to view this page.
+        </strong>
+      </div>
+      <p class="govuk-body"><a href="https://www.bathnes.gov.uk/cookies/">Find out more about
+          cookies</a>, including how to see what cookies have been set and how to manage and delete them.</p>
+    </div>
+    <div class="breakout-box breakout-box-primary" id="internetExplorerWarning" style="display: none">
+      <div class="govuk-warning-text govuk-!-margin-bottom-0">
+          <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
+          <strong class="govuk-warning-text__text">
+              Internet Explorer is not fully supported on this site. Functionality maybe limited.
+          </strong>
+      </div>
+      <p class="govuk-body">
+          Please use a modern browser such as Edge, Chrome or Firefox to use this site. <a href="https://browsehappy.com/">Download and install</a>, an alternative browser.
+      </p>
+  </div>
+    <main class="govuk-main-wrapper" id="main-content" style="visibility: hidden;padding-left: 10px;padding-right: 10px;" role="main">
+      <div class="govuk-grid-row" id="pagerContent" style="visibility: visible;">
+        <!-- <div class="govuk-grid-column-full"> -->
+        <div class="govuk-grid-column-full">
+          <h2 class="govuk-heading-l" id="planningTitle">Planning Application Reference: 26/02637/TCA</h2>
+          <h4 class="govuk-heading-s govuk-!-margin-bottom-0" id="commentText"></h4>
+          <button class="govuk-button govuk-!-margin-bottom-4" data-module="govuk-button" id="submitCommentBtn" style="">Comment on this application</button>
+          <br>
+          <button class="govuk-button" data-module="govuk-button" id="emailUpdatesBtn" style="">Get email updates about this application</button>
+        </div>
+        <!-- <div class="govuk-grid-column-two-thirds"> -->
+        <div class="govuk-grid-column-full">
+          <a class="govuk-back-link" href="#" id="backBtn" onclick="pager.back();" style="display:none;">Back</a>
+          <form id="form" method="post" novalidate="novalidate">
+            <div id="pagerWrapper">
+
+              <div class="govuk-tabs" data-module="tabs">
+
+                <ul class="govuk-tabs__list" role="tablist">
+                  <li class="govuk-tabs__list-item" role="presentation">
+                    <a class="govuk-tabs__tab govuk-!-padding-right-3 govuk-!-padding-left-3 govuk-tabs__tab--selected" href="#details_Section" id="tab_details_Section" role="tab" aria-controls="details_Section" tabindex="0" aria-selected="true">
+                      Details
+                    </a>
+                  </li>
+                  <li class="govuk-tabs__list-item" id="importantDatesTab" role="presentation">
+                    <a class="govuk-tabs__tab govuk-!-padding-right-3 govuk-!-padding-left-3" href="#importantDates_Section" id="tab_importantDates_Section" role="tab" aria-controls="importantDates_Section" tabindex="-1" aria-selected="false">
+                      Important Dates
+                    </a>
+                  </li>
+                  <li class="govuk-tabs__list-item" id="relatedInfoTab" role="presentation">
+                    <a class="govuk-tabs__tab govuk-!-padding-right-3 govuk-!-padding-left-3" href="#relatedInfo_Section" id="tab_relatedInfo_Section" role="tab" aria-controls="relatedInfo_Section" tabindex="-1" aria-selected="false">
+                      Related Info
+                    </a>
+                  </li>
+                  <li class="govuk-tabs__list-item" id="propHistoryTab" role="presentation">
+                    <a class="govuk-tabs__tab govuk-!-padding-right-3 govuk-!-padding-left-3" href="#propHistory_Section" id="tab_propHistory_Section" role="tab" aria-controls="propHistory_Section" tabindex="-1" aria-selected="false">
+                      Planning History
+                    </a>
+                  </li>
+                  <li class="govuk-tabs__list-item" id="commentsTab" role="presentation">
+                    <a class="govuk-tabs__tab govuk-!-padding-right-3 govuk-!-padding-left-3" href="#comments_Section" id="tab_comments_Section" role="tab" aria-controls="comments_Section" tabindex="-1" aria-selected="false">
+                      Comments
+                    </a>
+                  </li>
+                  <li class="govuk-tabs__list-item" id="documentsTab" role="presentation">
+                    <a class="govuk-tabs__tab govuk-!-padding-right-3 govuk-!-padding-left-3" href="#documents_Section" id="tab_documents_Section" role="tab" aria-controls="documents_Section" tabindex="-1" aria-selected="false">
+                      Plans and Documents
+                    </a>
+                  </li>
+                </ul>
+
+                <section class="govuk-tabs__panel" id="details_Section" role="tabpanel" aria-labelledby="tab_details_Section">
+                  <h3 class="govuk-heading-m">
+                    Details
+                  </h3>
+                  <div class="govuk-grid-row">
+                    <div class="govuk-grid-column-two-thirds">
+                      <div id="commentWarningMessageOpen" style="display: none;">
+                        <div class="govuk-warning-text">
+                          <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
+                          <strong class="govuk-warning-text__text">
+                            <span class="govuk-warning-text__assistive">Warning</span>
+                            The Planning Team is working hard to publish comments as quickly as possible however given the number we will receive your comment may not appear online for some time. Rest assured comments are available to the planning officer from the minute you submit and will be taken into consideration. 
+                            <br>A paper copy of this application will be available to view from 10 February 2025 in the Housing Welfare and Advice Service at Lewis House, Manvers Street, Bath, BA1 1JG. 
+                          </strong>
+                        </div>
+                      </div>
+                      <div id="commentWarningMessageClosed" style="display: none;">
+                        <div class="govuk-warning-text">
+                          <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
+                          <strong class="govuk-warning-text__text">
+                            <span class="govuk-warning-text__assistive">Warning</span>
+                            Please note that the Planning Team is working hard to publish comments as quickly as possible however given the number received your comment may take longer to appear online.  Rest assured comments are available to the planning officer from the minute you submit and will be taken into consideration.
+                          </strong>
+                        </div>
+                      </div>
+                      <div id="details"><p class="govuk-body govuk-!-margin-bottom-0 govuk-!-font-weight-bold">Address of Proposal</p><p class="govuk-body govuk-!-margin-bottom-2">5 Bailbrook Lane, Lower Swainswick, Bath, Bath And North East Somerset, BA1 7AH</p><p class="govuk-body govuk-!-margin-bottom-0 govuk-!-font-weight-bold">Proposal</p><p class="govuk-body govuk-!-margin-bottom-2">Leyland Cypress (Cupressus x leylandii) T1 - fell to ground level.
+Leyland Cypress (Cupressus x leylandii) T2 - fell to ground level.</p><p class="govuk-body govuk-!-margin-bottom-0 govuk-!-font-weight-bold">Type of Application</p><p class="govuk-body govuk-!-margin-bottom-2">Tree Works Notification  in Con Area</p><p class="govuk-body govuk-!-margin-bottom-0 govuk-!-font-weight-bold">Status</p><p class="govuk-body govuk-!-margin-bottom-2">Pending Consideration</p><p class="govuk-body govuk-!-margin-bottom-0 govuk-!-font-weight-bold">Ward</p><p class="govuk-body govuk-!-margin-bottom-2">Lambridge</p><p class="govuk-body govuk-!-margin-bottom-0 govuk-!-font-weight-bold">Planning Portal Reference Number</p><p class="govuk-body govuk-!-margin-bottom-2">PP-15066068</p><p class="govuk-body govuk-!-margin-bottom-0 govuk-!-font-weight-bold">Applicant Name</p><p class="govuk-body govuk-!-margin-bottom-2">The Roots Company</p><p class="govuk-body govuk-!-margin-bottom-0 govuk-!-font-weight-bold">Agent Name</p><p class="govuk-body govuk-!-margin-bottom-2">The Roots Company</p><p class="govuk-body govuk-!-margin-bottom-0 govuk-!-font-weight-bold">Agent Address</p><p class="govuk-body govuk-!-margin-bottom-2">C/o Mr Thom Berry
+Jubilee House
+Wapping Road
+Bristol 
+BS1 4RW
+</p><p class="govuk-body govuk-!-margin-bottom-0 govuk-!-font-weight-bold">Case Officer Name</p><p class="govuk-body govuk-!-margin-bottom-2">Jane Brewer</p></div>
+                    </div>
+                    <div class="govuk-grid-column-one-third">
+                      <div id="mapContainer" style="height:350px;">
+                        <div id="map" style="height: 100%; border: 1px solid rgb(191, 193, 195); position: relative;" class="leaflet-container leaflet-touch leaflet-fade-anim leaflet-grab leaflet-touch-drag leaflet-touch-zoom" tabindex="0">
+                        <div class="leaflet-pane leaflet-map-pane" style="transform: translate3d(0px, 0px, 0px);"><div class="leaflet-pane leaflet-tile-pane"><div class="leaflet-layer " style="z-index: 1; opacity: 1;"><div class="leaflet-tile-container leaflet-zoom-animated" style="z-index: 20; transform: translate3d(0px, 0px, 0px) scale(1);"><img role="presentation" class="leaflet-tile leaflet-tile-loaded" style="width: 256px; height: 256px; transform: translate3d(-96px, 26px, 0px); opacity: 1;" src="data:image/png;base64,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"><img role="presentation" class="leaflet-tile leaflet-tile-loaded" style="width: 256px; height: 256px; transform: translate3d(160px, 26px, 0px); opacity: 1;" src="data:image/png;base64,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"><img role="presentation" class="leaflet-tile leaflet-tile-loaded" style="width: 256px; height: 256px; transform: translate3d(-96px, -230px, 0px); opacity: 1;" src="data:image/png;base64,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"><img role="presentation" class="leaflet-tile leaflet-tile-loaded" style="width: 256px; height: 256px; transform: translate3d(160px, -230px, 0px); opacity: 1;" src="data:image/png;base64,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"><img role="presentation" class="leaflet-tile leaflet-tile-loaded" style="width: 256px; height: 256px; transform: translate3d(-96px, 282px, 0px); opacity: 1;" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAQAAAAEACAMAAABrrFhUAAACUlBMVEVIPjRWVlZgYGBhYWFmZmZpaWlrXU1ubm1vcG9xbGZxcXBxcnF4eHh7dm98e3p/f36AgICHhYSHh4aHiIWHi4eIiIiJiYiKiomNgnWNjYqNjYyOjo2PfWeQkI6Rj4yRkI6RlZGSkpCVk42Vk5KVlJSVl5SWkouWlZOWlpSWlpaWl5WYmJaZmZeZmZiZmZmbmZadcTOdnZufnZugnZmgpaCioJ6joZ+jo5yjo6CjpqKkoqCko6Klmoylo6GmpaOnoZmnpaOnpqSnqKWocAComIWop6WoqKWoqKappqSpqaapqaepqaiqo5uqqqmqqqqrhVCrq6qrq6utraqurqqurquvp56vrKqvrq2wrquwtbCxrqyxr6yxsK6xs6qxtrCxtrGynICysq6ys7CytbKzsq+zs6+zs7O0pJC3iCu3qpi3tLG3trO3t7e3uLS4uLS4uLW4v7i5mm25p5O5rZ+5ubW5uba6ure7u7q7u7u8vLy9ube+saK+uri+u7m+vrq+xb6/vLm/vbu/v7y/wr7AxcDBvrzDrpXDw7/Ew8HExMDHrorIx8fIyMTJycXKysbMyMXMzMvMzMzM1czNvKfNycbNycfNzMjNzc3Nz8rN1c3QzMjR2tHSzsvUuIDVwqjW09DXu5vZwaPZ2dTa1dLa1tPa2Nbb3Nbb39jb4trb5Nvcxqvd3d3fxKTf39niz6ri4eDj1sXm5ubo49/o6eLp7OTp7ubp8efp9Onqzazq6uTr0LDs6OTu7u7w7Orx59Xx6+L08e/39vT62rT6+vP7+vr///91L3RdAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAV+0lEQVR4nN1djZ8bx1meJYcbCTjUUkCCAwNpaieujyTFhvbAOFjWYYfzOYBTQw0xDRwfpUkU7sCNbVK3RgqXLObOdY2NYw7JgTjZbU5KQEzOjs4a7f/Fb3b1sbvzPfuhPb+/X2In2tvT88z78cw7M7sAjQ0uzzcQ0+xSrtYjrVhCWbF9nG/PNDD+K1yeZ19nV3JlCvxer2fUUUYMcr6/BAFQY/ix1QyUFVtu6BMAee7PHv6dHwTA+wMuL2sNf8aCwJzXJKDBc/+KwRn+HR8EQOj+guF3gyCPMmJwn+pPAIH7C4c/Y0HAq2RUA1z3lxl+bJZhox0aBGB5HjI/tKWGf2cHAeC4P0J5qfHHlstOEJi6SpBitmFJEmBlJw2oiQHA/7iU6+28IJiPkQAkHwTFCtqJeRAIPt+JQaCUB4HoAvkgKGdGEPKEjTIBaCcGAU/ZKxNgSwdBdgShQh4E4kvkgyA7syL5PAgkrlEIgsy0Bvax9a06AfYODALpzgCQuehhDgIgddUODAJZMQCkrtqJQSDpAkDubjsxCOQmRUDybjswCOTyIJC8m23UHs4gALJ3kw0Cq5h/Gu2gPAikbycXBDWjpNqTSc5kvgiQvptMEFjFfF13lTIJk/giQP5u4iCoGXnN7vzk8iBQuJ0gCAbDjy07QdCIkwCbGwTWYPhdy0oQiH0RqDQxOEHgG365X5ySCX0RKFVtZhAEhl+1K5WoiXwRlPPRgyA0/KpdqYnmQaDWyaMGATH82QoC/kgAxXY2GQS04Xd/sc6OnQRMMBJAsZ1NBAF1+LV37KSfB4FqOzsYBKzhxwal+3KTzIOg17NyShPYks8FrFzejnXHTvpNcsAbQ0EQCH80M0FA/R6wYa4cOw64Y8gNAv7wZ0oQ7iOhH9+/cO76B/fuKSlBfxBIeU5WgmBYkaAH/cS569fvOZ4BjdvhIJAYfvc3Z8QF5k1omseOL5zAoz6Ark8AKuWkE0c2KgH8w58+ee76vSD0CASgknTiyEAQQPP4yQ8o0KMQoGATDgLYWPmHNdrIp0YAnGAQwMbKwsnrHPROCgRMLAigeUyI3kmDgIkEAUZ/jh346RIA0w4CefROKgSkGwQYPTfrTYAAlFoQYPQjjZchAmAq3SFoHj+hiN5JiYAUukN66B3HAeks5SYaBBCaz53UQu84DkhnP0NylQBCc782esdxQErbO5OpBJ7U00fvYA9IaX9r/MuFklJPREAdpWTxdoeUxA6XAJSWxVgLVcVONghAMdVCaB5XFTsZIQBFr4VQu9xnggAULQ1ELXgZIKAxHzHlx43eSZkAzV0D2PEX1uJI+RMnAKnvGkhs6CdDAFSSxIkO/WQIQCJJDCFMaegnRADiSWII//7k87MmhNA89tzCucgyN5MEIGYthP8y+/x1x7n3rydOnByv3T18BECqJIbmc8+nBnqyBCCyFkZpaOwoAqC5QtZCaB6LWd1mlQBoLlz/diMcBCvxzGqzTwBcWcAZ7kvBeSE8lkqqnzwB0IXvOM65hn9eCJ9zR7+7ubnZdf8y+l7d7sNEAFw5MRzoD1bGghCunPC8v1qtVjcdZ3OxWvWu2lysLq4+NATAMXzHcWZdpWfOuylh8P8WveFe7DrV2+7ful2n+1QXewT+JFFnAMnDH+F0zU2DCP3Z7y+cG6X+Rfffm1XvnzEr3cXq4lOb1cUBQTuRADge5qF9yVvG+Vtf5XuquljtOrerjtP1uMBMrDquF6yO/WIHEgBXyCR/bj/R1+k6TnXVub06JqBbXbzt/RemZTWRfNDC/1pLlgDzpOy32awSIbDpErAZNwEYd79VmJqaendrq30rWQKOSyu821VvvMdQq7fjJ6A1W8C42+1br9+61XYtUQLgCTnwq5ubi5sYchenu2rXqa52bz/VjY2A1myhMPXm/a2t9uHXB7hHBpIkoHFO7gveXsUywHG8P1a72CHwX7s4KFYd57ZeEmwtLRUKb257uMPAM0VAzNZaW1p668H29tbuw4eZwB9KAlqtVr//YHt6evfh1wW4UyEArqQ5z+vPTk1NH5bF3W63m80rFy6eBikp4OSs1Vqa/dr2/a02kd9YsDHugwf3HHr25bfNRkIEQPMYZ4NynNb/wvTuw0LoTTzcf/xbBzDsoy+bZmPUfAbJwPcJ/eSstdTf3hJ6+YXTQ9g/a45gjw0kgP5YGr7fWipMT9/iRbeL2z/a1KengskP/qfvfKoMv//gPs3vm00c3iHcI6O2o8HEB//TI0eO/FDh+tZS4U2a4ze/c+DgoaNv09x88O3mkyUAqm9Tde2dI0eOvCN9db8wPU0Z+2bz4sEf/2f+umOiBMCGdnf30yNH/koqBlprOOfRHP/K6T1HTeHmg8ZyUgRAaEbZr/ZDmRzg5jxqwrtw4NDLJpR4iKKZEAEwhWWd/vZ/UGt98+KBQ29D3gD7CTATIAAmvazTWmPkPIz+4LN46NHkCIDmQrJ6r9+foqU8N+ntOepDz8Qn3J0CMip4WmtLb7FkXvPK6UMh9FIEwDgJgCux7dWkWL8wNc2Y0XpJTxqfz+g7VYEWevN49F3KdGt5xY4xs3OTHmODhYgARpUA6ujxUkdCg79WmJreTfd7N+kdIhx/bKKtyDERAHHRSwJ7y+k/YBQ7N+yJpCeHL14CYENP7QrBry0Vpv+JOfJ46F2to4EPicokUIBv7k+k6PX779Jr3TDn8Yeej09YJcBEFQ9rZuePesm9pYkSADUnenozO9mol8In3KwPxOjhSux6r7X2FmNmp+j4CgQwyiSYQNbHxe4w3/FZxV4ZXzQCYNyB31rr97e3bvEa2M0D/hlOjAQwdAJgo2/ErHZbS4UpVhvTB1/zVImmDkIgrYkentKL1m2ap3Xha+sgRCUg5qNJgmI3siuH9A9X6uogBJKvebjYScBvf197+CPIADQiwOsmx3woD3v+luRC7fef1YcfnQC4snCyEb/nT8l4vmfNQ5HO1OnqIATG0/v9sZa8/pqk5w/sYrTD1bo6CAGEzLhlbmvtwwfbfnA3b0o4QCT82jIAAYRi3sZAVPubzxjGT7XvJOoAuv0ghAlY/nZ86Pv97eD85uYzn8mVrZ7ReeIMDfedO3fa7Utn7jR/Lhp+bR2EADSPxbSTp7X0tftBeBh90X0AZ/HVGy997MN97U67fWbuWvvS3Jl2+9Kl9oU/j4ZfWwYgEJfgWytM7w55/meM0Quri5/vdDp3565da7fn5q6178zNtdv4P4Z2IOLBcvG6GCvEwL3YhG4A/c3PGtj1R2Z0Op3OjW+cabfx4MedAvVlAALRwbeW3gqV+5vPBNG7MYAZ6PwXPQU2jyZNAPPZBSAJ1w+jxy+feNQl4CWf2/vsQtQnrGjLABSRgP52cIqH0dPf1Wy4LnDjTCJFUPyMmgQIaC3Nhhbvbv4NDnwa+mEa7HT+h0rAwaiPWdLWQQjE1taiBD7FBTrUFBA1B+rrIATi2bBAD/ygC/waxn/3iSRyoHY7BGkQ0JoNdzfYge83y62EnScoafDC20kTwK4SQBH+UiHcyhe5/tgFvDSYRA7UlwFIjYD+dmjVXsL1R1bzXOAjkoADwhxoR6yCcRDQCid9SdcPu8D3yBj4qgiwbRhGvlQq1et0JjS3xygQgHephdobruvLox+5wEukFNiDEBVwpT541Fs917NqtXKxmAt9EHFVBMkS0H93Wt/1Q5Xw7nclCBgCHuAtFcc3CXwwcAl9GYDEBLQ+fBDR9UNi6GMxAfVcCC/lt/ld4mfCLiFfJYC663PkntAF/r3T6bx3R0hAxTfiQrNqf/nbQ5coVahZQpuA/hcIuafj+sE0SCYBkgAewxszM2c3Av/nk1MeEcEsYUuVScAefKe/zWrw6JqbBm/MCacCJb6LbZwFAQbePx/4mMyXnCoBWPBnp4KbdrwWRy+i5V6lTYi+DtXebLixK/jfV69SL7NcJjARP/8LIZcQElAI6b2Irh9Kg2ECToerdN5Swc8iYMzE3/0ms4QCWuRvb92K1/WDaZBoClxYVnrRdRh/7/z7gt966hPvz5FLjLMEINL+7P0EXD+YBokZ4d4wAbxbzGyw8DEtfIEvS4Ag/MJ0UPFIz3RkzZ0T/neYgMeCScDOKTlA78ui38q8wKoFCOi/Gyp6nzVycaIfuUCYgBdMlg6i2MxGb2ODrIIc410ARoP/YbjBFVPeo7jA3Tl+DAh00MzM2V7MBLSWCjSxT1wd/MX6LkB0RV5oSOsg0oQEhHQCSUB/ltLfo6T9DTDTi8UFboTVcDPgAnk1Anj4hGUSuFUv+G1ukr4/g6vvLjL/ss2yeC7wEVcKyL3mXFoG8AkohHZp031/A6ihL+cMZinDayQ/CBNwxb9Bhi8D1Ak4xdEJIOj7zd+l+r7rArJm1YpGvmL730wZNONVygrRYw1JGUCasgzwGwjAP33IYISfm/42zgqzoGWVMXpcy5gwip+nTIheWJaUARoE8HQCGKPHm1SRv/cSspldM2fPkirEb1Y556HnRjJOg//bZldCvgzoKesgbpUAQ/gXDx5tcMdtl5sDNs7KocfFLMdLg8Q68bgSKrVDIsqAnkdA8+LoBCpr3AY9CI8GOvpSqC3FfFk9bgsQUmBcCeMmgFsmgev7vj2qrBhww/8sHT9O+nnyXSXscMJp8AyzEgraIUr4hFUCNC9+1fX98bgxrpzZtWvXWXbSJ+DzyhluC3zMrISKOiiSDOgB4igeu3xxkz7N2EOJ2wJEGjzYkGmHqOETtgsA8a0VcjAXPbeg46Vioisw7Iso6iDpdgjVgILj8pM+1QV4lZAUQ3vT10E9CgEyMUBL+hTjiCHahMCrhKnqoB5Q+dY+9JSkTzNuJWSIoVR1UA+ofOtx0pdCLxJDFD3cSFsH9WgEsOu3ZTFLnqoLlB9liaE02yE9KgGsLCRK+jTjiqG7bZoYKhmsGZkGPmGZBLRvTZPDMkmf6gKs31x8lJIGXTFkc2ZkqviEZRJIDZtk0lcUQ692LhOV8OtuFijH2g7hVgkgHjarRlX6ksas6lbulzo3CDF05Zuqk4FoOqhHJ8AnBXQCn3UvH/pyLlf+YqfzXpvWGVLqCUaTAT06AcNSrBv4gXsZdPi93mvrNDG0rDgZEBHArxKfMI7OYjkcIfCD9wqNp1Ue9h1/pUPJAnsVJwPRdNAnDAJKZSW9w7VSQAxZxVxxiO+1dUoWeKGhNBmIKAPeZxBgRwx8hgtYVs6/5PB/v07LAnuVJgNCAvhV4irr9Hhs6H1VdRD6Pvtrahb4DaNYrtWsmHQQv0pcTeUdI0Yw9Mf2n39CmRU399YrpVLeMIxcETORqAw4nwoBpVrPKlJX2r94t3N5jtUctOuYCUyEy4SVBAGnUiHANgKh77PX3uh0/o0QQ6Fz5Ha9Xve7hKWkg/hV4svpvGeIJe6t4o/R9o8Tm6bGTBDBEVEGnEqHAGqPxVVZf7BOyQJhF6Az4RHxizuCAETqYVdiIwQfp20d9a2Ucs2uV340mgw4nxIBIRfwSexX1imL5eF9c2wTagaBDLia1svW/Hp4MPieNb5CO0pG7B5mmbCBKJABV9MiYNQctKxcvuSXWd9a73S+QYgh2VNEwgbi7/0ET0ycZ0nhpFyAMr1svMheIhCbsHfyIxVXTDAuO8WaDMVveEqEW6rk9PLJ9c5dIgsEt41xbisgwDK4PJ1KjwBkFBm9heU/oiwRBLeNsU3UO7Hy3mUMAn61lh4BFcrge/Y47SARSwyFTNQ7qeV5l1k/mZ/AW2cJW16nLRHIPVdJ1Dspl3iXWflk3jGiao93Opd/oOUCwt6JRwDrslpGCMAuwN4vEUkHFSu8y8qlbBCA9fDda6z9EpF0UK7Cu6xcyQYBrh4mssCFl2PQQTmbd1kxKwRgPUz2h/c0ousgw+ZdlqtnhABXD3+koYcldRBLBuTsrBBgvtjp3CVOlIrFkGhD2VAHMeSSkRkCXD1MWSIQ/dgv0/tkYR3EkgFGQu8a07DlNzqdy+ouMA+pfTJJGWDls0MAFkOsXVNsC7zH3tcnG7lEmSsDalkiAIsh4ly5aEpEPRXudwmDLwNKGSIAiyFyoVCgh/lvl7Lr9c81eDKgXMkQAa4YmrujpoclHyFWKdJzZDFTBMCv0LKAu2VGnwAvR9QZOTJXzxIBrgu8p+YCzIfkkTnCpuTInJ0pArAefmlOaYlA5xFivhz5SLYIwGKIzALcJYJ9Ud68Yv/F00m9dFXTcHOQskQAk3iE2OjHAcqQYTFEHqYyE3iU6pgegDJkWAypLBFEeIba6FOAsmRYDNG3kMf8JNGsErC8Tnvo5t6ECHCLaLYIwHqYd6RSUQYIHrjt0hOBgDg3knGbg8wpkf6TRGMgwK4YJZmrbHUxxD5SGdcT1X0/DpCW2RUjZxmifbR2xTC8loy0/Q6tOchYJYpDBiCgC7/W6xVLYpJ6QpaCZv4p7TAV3QUiygBtAmwPPu4p1kXwe72iogs8SWsL0KdEEWWA9+NA7ethYPnRhk+2CwzhC1hiNAfJR+9Sp0TaL1bx/zjQh88GZ5d820JVXQCLISIGqKtEceggBCLAZ4CzS8FtoaouQEuD1FWiCE8SHf84UPhqdgg+FVwYvjBXUpuDlwgxZCYjA5A8AXae8nidsAuQ8NVd4BXaGglND8chAxCIAj8Mjgpf2QWwGCKzAKmHY5EBCESCH3ABBnx1F6CulJIuEIsMQDIEYGR0+D5wbPjqLvAi7QHchAvEIgMQiAZ/6AKCixRd4Ml1yjEKYkoU4YHivh8HgpsIkHnghBcpugBuDn5PqIf13ysiT4AthI9dQOIiRRfAbYG2aEoUUQYMZCLgXMILaz8DEid9VV3gjU7nu9cELhCLDEAgKnw5G2xVkTbqMYrQlCiiDBAQYFfifaCot19PSQ+Tj+EPLBRGlAFD/gADftyPk1V0Abc5SBBw4ZuxywAEUoGv7gKvUF3APys2lxMiwE4CvpYLkGskvqcuRp0MDwMEUODH9BjxyC5AeRnHXoWeuJQMQCAl+MougKdEZHPQNyuOKAOoBNjJwVd3gW8JXCCiDBg6EFB6iFbaLkDJAo14ZQAC+s8SVLai8pSI4wJRZQCdgHqWXMCkHaYauUBEGTByIIAy7AIdjgtE7AaM+AMouy5AXyIYuEDEbgCLAJSgC+BTozEcphrMiv/xkfDLhLR0EAoTkIALWMXRodk4DlMNZsX5IvO1SioyABFSOG4XsHJ5o+bC13gmE/Uwlfu4sfEZCMYLpgRJkk1APVYXsIr5Cqrk9OAzjlR6G+fIMxAhJp7m33mYIQBK0AVc+PjL6sH3pkSXqWmQd2LSe5vQ57h3HmUIQHyk+lRbIfwo9gpriUB4YnJwZlaDABSPC8QB39PDZBY43RCfmPTOijBtlCIBSsQF4oHPWii88qz4xCR/6jVOkQAl4AKxwR8cqSQOUz3WEJ6YxGcBdAmI6AIxwh9sIac8e1X41E3vzCzLxkIa0D6O4gIYfpw7CPGuKfJI5elHRF/ROzPLvOtISP8/n44GFXB7CqUAAAAASUVORK5CYII="><img role="presentation" class="leaflet-tile leaflet-tile-loaded" style="width: 256px; height: 256px; transform: translate3d(160px, 282px, 0px); opacity: 1;" src="data:image/png;base64,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"></div></div></div><div class="leaflet-pane leaflet-shadow-pane"><div class="awesome-marker-shadow awesome-marker leaflet-zoom-animated" style="margin-left: -10px; margin-top: -12px; width: 36px; height: 16px; transform: translate3d(162px, 175px, 0px);"></div></div><div class="leaflet-pane leaflet-overlay-pane"></div><div class="leaflet-pane leaflet-marker-pane"><div class="awesome-marker-icon-blue awesome-marker leaflet-zoom-animated leaflet-interactive" tabindex="0" style="margin-left: -17px; margin-top: -42px; width: 35px; height: 45px; transform: translate3d(162px, 175px, 0px); z-index: 175;"><i class="fas fa fa-file-alt  icon-white"></i></div></div><div class="leaflet-pane leaflet-tooltip-pane"></div><div class="leaflet-pane leaflet-popup-pane"></div><div class="leaflet-proxy leaflet-zoom-animated" style="transform: translate3d(6.62362e+07px, 4.46934e+07px, 0px) scale(262144);"></div></div><div class="leaflet-control-container"><div class="leaflet-top leaflet-left"><div class="leaflet-control-zoom leaflet-bar leaflet-control"><a class="leaflet-control-zoom-in" href="#" title="Zoom in" role="button" aria-label="Zoom in">+</a><a class="leaflet-control-zoom-out" href="#" title="Zoom out" role="button" aria-label="Zoom out">−</a></div></div><div class="leaflet-top leaflet-right"></div><div class="leaflet-bottom leaflet-left"></div><div class="leaflet-bottom leaflet-right"><div class="leaflet-control-attribution leaflet-control"><a href="http://leafletjs.com" title="A JS library for interactive maps">Leaflet</a> | Contains OS data © Crown copyright and database rights 2026</div></div></div></div>
+                      </div>
+                    </div>
+                  </div>
+
+                </section>
+
+                <section class="govuk-tabs__panel govuk-tabs__panel--hidden" id="importantDates_Section" role="tabpanel" aria-labelledby="tab_importantDates_Section">
+                  <h3 class="govuk-heading-m">
+                    Important Dates
+                  </h3>
+                  <div id="importantDates"><p class="govuk-body govuk-!-margin-bottom-0 govuk-!-font-weight-bold">Application Received</p><p class="govuk-body govuk-!-margin-bottom-2">13/07/2026</p><p class="govuk-body govuk-!-margin-bottom-0 govuk-!-font-weight-bold">Application Validated</p><p class="govuk-body govuk-!-margin-bottom-2">13/07/2026</p><p class="govuk-body govuk-!-margin-bottom-0 govuk-!-font-weight-bold">Expiry for Consultation</p><p class="govuk-body govuk-!-margin-bottom-2">04/08/2026</p><p class="govuk-body govuk-!-margin-bottom-0 govuk-!-font-weight-bold">Target Decision</p><p class="govuk-body govuk-!-margin-bottom-2">24/08/2026</p></div>
+                </section>
+
+                <section class="govuk-tabs__panel govuk-tabs__panel--hidden" id="relatedInfo_Section" role="tabpanel" aria-labelledby="tab_relatedInfo_Section">
+                  <h3 class="govuk-heading-m">
+                    Related Information
+                  </h3>
+                  <div id="relatedInfo"><p class="govuk-body govuk-!-margin-bottom-0 govuk-!-font-weight-bold">Planning Constraints</p><p class="govuk-body govuk-!-margin-bottom-2">Conservation Area</p><p class="govuk-body govuk-!-margin-bottom-0 govuk-!-font-weight-bold">Related Property</p><p class="govuk-body govuk-!-margin-bottom-2">5 Bailbrook Lane, Lower Swainswick, Bath, BA1 7AH.</p></div>
+                </section>
+                <section class="govuk-tabs__panel govuk-tabs__panel--hidden" id="propHistory_Section" role="tabpanel" aria-labelledby="tab_propHistory_Section">
+                  <h3 class="govuk-heading-m">
+                    Planning History
+                  </h3>
+                  <div id="propHistory"><p class="govuk-body govuk-!-margin-bottom-0 govuk-!-font-weight-bold">Reference</p><p class="govuk-body govuk-!-margin-bottom-2"><a href="./details.html?refval=26%2F02637%2FTCA#details">26/02637/TCA</a></p><p class="govuk-body govuk-!-margin-bottom-0 govuk-!-font-weight-bold">Proposal</p><p class="govuk-body govuk-!-margin-bottom-2">Leyland Cypress (Cupressus x leylandii) T1 - fell to ground level.
+Leyland Cypress (Cupressus x leylandii) T2 - fell to ground level.</p><p class="govuk-body govuk-!-margin-bottom-0 govuk-!-font-weight-bold">Date Application Received</p><p class="govuk-body govuk-!-margin-bottom-2">13/07/2026</p><p class="govuk-body govuk-!-margin-bottom-0 govuk-!-font-weight-bold">Status</p><p class="govuk-body govuk-!-margin-bottom-2">Pending Consideration</p><hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible"><p></p><p class="govuk-body govuk-!-margin-bottom-0 govuk-!-font-weight-bold">Reference</p><p class="govuk-body govuk-!-margin-bottom-2"><a href="./details.html?refval=26%2F01755%2FTCA#details">26/01755/TCA</a></p><p class="govuk-body govuk-!-margin-bottom-0 govuk-!-font-weight-bold">Proposal</p><p class="govuk-body govuk-!-margin-bottom-2">Holly (T1) - Reduce crown by approx. 2-3m to manage crown size and fell the tallest stem.</p><p class="govuk-body govuk-!-margin-bottom-0 govuk-!-font-weight-bold">Date Application Received</p><p class="govuk-body govuk-!-margin-bottom-2">06/05/2026</p><p class="govuk-body govuk-!-margin-bottom-0 govuk-!-font-weight-bold">Status</p><p class="govuk-body govuk-!-margin-bottom-2">No Objection</p><hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible"><p></p><p class="govuk-body govuk-!-margin-bottom-0 govuk-!-font-weight-bold">Reference</p><p class="govuk-body govuk-!-margin-bottom-2"><a href="./details.html?refval=26%2F01335%2FTCA#details">26/01335/TCA</a></p><p class="govuk-body govuk-!-margin-bottom-0 govuk-!-font-weight-bold">Proposal</p><p class="govuk-body govuk-!-margin-bottom-2">T1 and T2 - Fell - growing sideways and at risk of causing damage</p><p class="govuk-body govuk-!-margin-bottom-0 govuk-!-font-weight-bold">Date Application Received</p><p class="govuk-body govuk-!-margin-bottom-2">07/04/2026</p><p class="govuk-body govuk-!-margin-bottom-0 govuk-!-font-weight-bold">Status</p><p class="govuk-body govuk-!-margin-bottom-2">No Objection</p><hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible"><p></p><p class="govuk-body govuk-!-margin-bottom-0 govuk-!-font-weight-bold">Reference</p><p class="govuk-body govuk-!-margin-bottom-2"><a href="./details.html?refval=26%2F01334%2FTCA#details">26/01334/TCA</a></p><p class="govuk-body govuk-!-margin-bottom-0 govuk-!-font-weight-bold">Proposal</p><p class="govuk-body govuk-!-margin-bottom-2">Felling of 4 trees in the conservation area situated in the front garden of 5 Bailbrook Lane.
+Please refer to the attached sketch plan and photographs for additional information:
+Trees 1 and 2: Cypress/Leylandii trees - self planted very close to established Norwegian Maple - Fell
+Trees 3 and 4 - 2no. Cypress/Leyandii on boundary with Bailbrook Lane -Fell</p><p class="govuk-body govuk-!-margin-bottom-0 govuk-!-font-weight-bold">Date Application Received</p><p class="govuk-body govuk-!-margin-bottom-2">07/04/2026</p><p class="govuk-body govuk-!-margin-bottom-0 govuk-!-font-weight-bold">Status</p><p class="govuk-body govuk-!-margin-bottom-2">No Objection</p><hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible"><p></p><p class="govuk-body govuk-!-margin-bottom-0 govuk-!-font-weight-bold">Reference</p><p class="govuk-body govuk-!-margin-bottom-2"><a href="./details.html?refval=21%2F03051%2FTCA#details">21/03051/TCA</a></p><p class="govuk-body govuk-!-margin-bottom-0 govuk-!-font-weight-bold">Proposal</p><p class="govuk-body govuk-!-margin-bottom-2">Leylandii (T1, T2, T3, T4) - fell
+</p><p class="govuk-body govuk-!-margin-bottom-0 govuk-!-font-weight-bold">Date Application Received</p><p class="govuk-body govuk-!-margin-bottom-2">28/06/2021</p><p class="govuk-body govuk-!-margin-bottom-0 govuk-!-font-weight-bold">Status</p><p class="govuk-body govuk-!-margin-bottom-2">No Objection</p><hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible"><p></p><p class="govuk-body govuk-!-margin-bottom-0 govuk-!-font-weight-bold">Reference</p><p class="govuk-body govuk-!-margin-bottom-2"><a href="./details.html?refval=21%2F02102%2FVAR#details">21/02102/VAR</a></p><p class="govuk-body govuk-!-margin-bottom-0 govuk-!-font-weight-bold">Proposal</p><p class="govuk-body govuk-!-margin-bottom-2">Variation of condition 2 (Plans List) of application 19/04284/FUL (Erection of single storey rear extension following demolition of conservatory and detached garage)</p><p class="govuk-body govuk-!-margin-bottom-0 govuk-!-font-weight-bold">Date Application Received</p><p class="govuk-body govuk-!-margin-bottom-2">30/04/2021</p><p class="govuk-body govuk-!-margin-bottom-0 govuk-!-font-weight-bold">Status</p><p class="govuk-body govuk-!-margin-bottom-2">Application Permitted</p><hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible"><p></p><p class="govuk-body govuk-!-margin-bottom-0 govuk-!-font-weight-bold">Reference</p><p class="govuk-body govuk-!-margin-bottom-2"><a href="./details.html?refval=21%2F01887%2FNMA#details">21/01887/NMA</a></p><p class="govuk-body govuk-!-margin-bottom-0 govuk-!-font-weight-bold">Proposal</p><p class="govuk-body govuk-!-margin-bottom-2">Non-Material Amendment to application 19/04284/FUL (Erection of single storey rear extension following demolition of conservatory and detached garage)</p><p class="govuk-body govuk-!-margin-bottom-0 govuk-!-font-weight-bold">Date Application Received</p><p class="govuk-body govuk-!-margin-bottom-2">19/04/2021</p><p class="govuk-body govuk-!-margin-bottom-0 govuk-!-font-weight-bold">Status</p><p class="govuk-body govuk-!-margin-bottom-2">Application Withdrawn</p><hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible"><p></p><p class="govuk-body govuk-!-margin-bottom-0 govuk-!-font-weight-bold">Reference</p><p class="govuk-body govuk-!-margin-bottom-2"><a href="./details.html?refval=20%2F00235%2FTCA#details">20/00235/TCA</a></p><p class="govuk-body govuk-!-margin-bottom-0 govuk-!-font-weight-bold">Proposal</p><p class="govuk-body govuk-!-margin-bottom-2">Mature Prunus - fell. Cypress - fell. Cypress - fell</p><p class="govuk-body govuk-!-margin-bottom-0 govuk-!-font-weight-bold">Date Application Received</p><p class="govuk-body govuk-!-margin-bottom-2">21/01/2020</p><p class="govuk-body govuk-!-margin-bottom-0 govuk-!-font-weight-bold">Status</p><p class="govuk-body govuk-!-margin-bottom-2">No Objection</p><hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible"><p></p><p class="govuk-body govuk-!-margin-bottom-0 govuk-!-font-weight-bold">Reference</p><p class="govuk-body govuk-!-margin-bottom-2"><a href="./details.html?refval=19%2F04284%2FFUL#details">19/04284/FUL</a></p><p class="govuk-body govuk-!-margin-bottom-0 govuk-!-font-weight-bold">Proposal</p><p class="govuk-body govuk-!-margin-bottom-2">Erection of single storey rear extension following demolition of conservatory and detached garage.</p><p class="govuk-body govuk-!-margin-bottom-0 govuk-!-font-weight-bold">Date Application Received</p><p class="govuk-body govuk-!-margin-bottom-2">01/10/2019</p><p class="govuk-body govuk-!-margin-bottom-0 govuk-!-font-weight-bold">Status</p><p class="govuk-body govuk-!-margin-bottom-2">Application Permitted</p><hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible"><p></p><p class="govuk-body govuk-!-margin-bottom-0 govuk-!-font-weight-bold">Reference</p><p class="govuk-body govuk-!-margin-bottom-2"><a href="./details.html?refval=18%2F02130%2FTC5#details">18/02130/TC5</a></p><p class="govuk-body govuk-!-margin-bottom-0 govuk-!-font-weight-bold">Proposal</p><p class="govuk-body govuk-!-margin-bottom-2">Apple tree-Fell.</p><p class="govuk-body govuk-!-margin-bottom-0 govuk-!-font-weight-bold">Date Application Received</p><p class="govuk-body govuk-!-margin-bottom-2">14/05/2018</p><p class="govuk-body govuk-!-margin-bottom-0 govuk-!-font-weight-bold">Status</p><p class="govuk-body govuk-!-margin-bottom-2">TP5/TC5 Exempt from consent</p><hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible"><p></p><p class="govuk-body govuk-!-margin-bottom-0 govuk-!-font-weight-bold">Reference</p><p class="govuk-body govuk-!-margin-bottom-2"><a href="./details.html?refval=16%2F05326%2FTCA#details">16/05326/TCA</a></p><p class="govuk-body govuk-!-margin-bottom-0 govuk-!-font-weight-bold">Proposal</p><p class="govuk-body govuk-!-margin-bottom-2">T1 Conifer: Fell. T2 Willow: Fell.</p><p class="govuk-body govuk-!-margin-bottom-0 govuk-!-font-weight-bold">Date Application Received</p><p class="govuk-body govuk-!-margin-bottom-2">31/10/2016</p><p class="govuk-body govuk-!-margin-bottom-0 govuk-!-font-weight-bold">Status</p><p class="govuk-body govuk-!-margin-bottom-2">No Objection</p><hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible"><p></p></div>
+                </section>
+                <section class="govuk-tabs__panel govuk-tabs__panel--hidden" id="comments_Section" role="tabpanel" aria-labelledby="tab_comments_Section">
+                  <div id="hideComments" style="display: none;">
+                    
+                  </div>
+                  <div id="comments" style="">
+                    <h3 class="govuk-heading-m">
+                      Comments
+                    </h3>
+                    <p class="govuk-body">The Comments tab lists <strong>all</strong> public comments received on this
+                      application
+                      (not statutory consultees, e.g. The Environment Agency, Highways DC, etc). The majority of
+                      comments are
+                      submitted via our Comments Form through the website and you can expand the comment to view all of
+                      the text by
+                      clicking on the plus button. A minority of comments are submitted by post or email and it is not
+                      possible to
+                      include all the text here, however when you expand the comment you will see a link to our
+                      Associated Documents
+                      page where you can search for the comment.</p>
+
+                    <table class="govuk-table" id="commentsTable" style="width: 100%">
+                      <thead class="govuk-table__head">
+                        <tr class="govuk-table__row">
+                          <th scope="col" class="govuk-table__header"></th>
+                          <th scope="col" class="govuk-table__header">Name</th>
+                          <th scope="col" class="govuk-table__header">Comment Type</th>
+                          <th scope="col" class="govuk-table__header">Date</th>
+                        </tr>
+                      </thead>
+                      <tbody class="govuk-table__body">
+
+                      </tbody>
+                    </table>
+                    <button class="govuk-button" data-module="govuk-button" id="submitCommentBtn1" style="">Comment on this application</button>
+                  </div>
+
+                </section>
+                <section class="govuk-tabs__panel govuk-tabs__panel--hidden" id="documents_Section" role="tabpanel" aria-labelledby="tab_documents_Section">
+                  <h3 class="govuk-heading-m">
+                    Plans and Documents
+                  </h3>
+                  <p class="govuk-body" id="pDocumentCommentInfo" style="">
+                    Prior to decision or at appeal stage a full list of public comments received for this application is
+                    available on the View Comments page. We only publish public comments on the documents page where
+                    they have been submitted by post or email.
+                  </p>
+                  <p class="govuk-body">Documents may be large and take some time to download. Files are in PDF format, <a title="how to view Word documents" href="https://support.microsoft.com/en-gb/office/microsoft-office-word-viewer-b1772025-1ce0-4a66-ade9-154303e2a3ca" target="_blank" rel="noopener">Word</a> and <a title="how to view Excel documents" href="https://learn.microsoft.com/en-us/office/troubleshoot/excel/get-latest-excel-viewer" target="_blank" rel="noopener">Excel</a> formats, <a href="https://get.adobe.com/uk/reader" target="_blank" rel="noopener">download the latest PDF viewer</a>.&nbsp;</p>
+                  <p class="govuk-body">Increase the list of documents displayed on this page by changing the Display drop down menu. Use the drop-down menus at the top of each column below to sort alphabetically or the date order.</p>
+                  <div id="documentsTable"><iframe id="iframe" src="/planningdocuments=26%2F02637%2FTCA" frameborder="0" width="100%" height="100vh" style="height: 0px;" data-hj-allow-iframe=""></iframe></div>
+                  <h3 class="govuk-heading-m govuk-!-margin-top-3">Copyright</h3>
+                  <p class="govuk-body">Plans, drawings and material submitted to the council are protected by the
+                    copyright acts
+                    (section 47, 1988 act). You may only use material which is downloaded and/or printed for
+                    consultation purposes,
+                    to compare current applications with previous schemes and to check whether developments have been
+                    completed in
+                    accordance with approved plans. Further copies must not be made without the prior permission of the
+                    copyright
+                    owner.</p>
+                  
+                </section>
+              </div>
+
+            </div>
+
+          </form>
+
+        </div>
+
+      
+    <div id="pagerConnectionError" class="breakout-box breakout-box-primary" style="display:none;">
+        <div class="govuk-warning-text govuk-!-margin-bottom-0">
+            <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
+            <strong class="govuk-warning-text__text">
+                <span>Unable to load page. Please check your internet connection and try again with the retry button.</span>
+            </strong>
+        </div>
+        <button type="button" id="connectBtn" class="govuk-button govuk-!-margin-bottom-0" onclick="pager.reload();">Retry</button>
+    </div>
+</div>
+
+    </main>
+  </div>
+  <a href="javascript:" id="return-to-top"><i class="fa fa-chevron-up"></i></a>
+  <footer class="global-footer" id="footer">
+	<!-- fontawesome cdn for social media isons --> 
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer">
+	<!-- /fontawesome cdn -->
+	<div class="footer-wrapper">
+		<div class="footer-brand">
+			<div class="footer-logo">
+				<img src="../assets/toolkit/images/logos/bathnes-logo-mono.png" alt="Bath &amp; North East Somerset Council Mono Logo">
+			</div>
+			<ul class="govuk-list footer-list">
+				<li><a href="https://www.bathnes.gov.uk/accessibility">Accessibility</a></li>
+				<li><a href="https://www.bathnes.gov.uk/contact-us">Contact Us</a></li>
+				<li><a href="https://www.bathnes.gov.uk/privacy-policy">Privacy Policy</a></li>
+				<li><a href="https://www.bathnes.gov.uk/disclaimer">Disclaimer</a></li>
+				<li><a href="https://www.bathnes.gov.uk/cookies">Cookies</a></li>
+			</ul>
+			<ul class="govuk-list footer-list">
+				<li>Copyright © 2026 Bath &amp; North East Somerset Council</li>
+			</ul>
+		</div>
+		<div class="social-links">
+			<h2 class="govuk-heading-s">
+				Follow us on social media</h2>
+			<ul class="govuk-list footer-list">
+				<li><a href="https://www.facebook.com/bathnes/" aria-label="Follow us on Facebook"><i class="fab fa-facebook fa-2x" aria-hidden="true"></i></a></li>
+				<li><a href="https://www.youtube.com/user/BathnesCouncil/videos" aria-label="Follow us on YouTube"><i class="fab fa-youtube fa-2x" aria-hidden="true"></i></a></li>
+				<li><a href="https://www.instagram.com/bathnescouncil/" aria-label="Follow us on Instagram"><i class="fab fa-instagram fa-2x" aria-hidden="true"></i></a></li>
+			</ul>
+		</div>
+	</div>
+</footer>
+
+  <script type="text/javascript" src="../commonfiles/js/site.min.js"></script>
+
+  <!-- toolkit scripts -->
+  <!-- <script src="../assets/toolkit/scripts/toolkit.js"></script> -->
+  <script src="js/govuk-frontend.js"></script>
+  <!-- /toolkit scripts -->
+
+  <!-- MAPS -->
+  <script src="https://unpkg.com/leaflet@1.3.4/dist/leaflet.js"></script>
+  <script type="text/javascript" src="js/leaflet.wmsHeaders.js"></script>
+  <script type="text/javascript" src="js/leaflet.awesome-markers.js"></script>
+  <script type="text/javascript" src="js/geotools2.js"></script>
+  <script type="text/javascript" src="js/proj4.js"></script>
+  <!-- MAPS -->
+
+  <!-- /additional scripts -->
+  <script type="text/javascript" src="js/jquery.validate.min.js"></script>
+  <script type="text/javascript" src="../commonfiles/js/loadingoverlay.js"></script>
+  <script type="text/javascript" src="js/moment.min.js"></script>
+  <script type="text/javascript" src="js/details.js?v=1006"></script>
+  <script type="text/javascript" src="../commonfiles/js/webcomponents-lite.js"></script>
+  <script type="text/javascript" src="js/jquery.dataTables.min.js"></script>
+  <script type="text/javascript" src="js/datatables-buttons.min.js"></script>
+  <script type="text/javascript" src="js/buttons.html5.min.js"></script>
+  <script type="text/javascript" src="js/jszip.min.js"></script>
+  <script type="text/javascript" src="js/datetime-moment.js"></script>
+  <script type="text/javascript" src="js/zipcelx.js"></script>
+  <script type="text/javascript" src="js/pdfmake.min.js"></script>
+  <script type="text/javascript" src="js/vfs_fonts.js"></script>
+  <!-- /additional scripts -->
+
+
+
+<script type="text/javascript" id="" charset="">clarity("set","pageTitle","Planning Application Details");</script></body></html>

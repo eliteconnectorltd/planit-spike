@@ -66,6 +66,14 @@ class DocumentFetchResult:
     byte_size: int = 0
     error: Optional[str] = None
     attempts: int = 0
+    # download_status classifies the outcome for reporting. None for the common
+    # cases (a success, or a plain failure carried in `error`); set to
+    # "unavailable" when the council served an Idox "Document Unavailable" page
+    # (HTTP 404 with an HTML body) — the document is genuinely not retrievable,
+    # as distinct from a transient or unexplained 404. `notes` carries the
+    # human-readable explanation for that case.
+    download_status: Optional[str] = None
+    notes: Optional[str] = None
 
     @property
     def ok(self) -> bool:

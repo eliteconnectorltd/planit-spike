@@ -1,0 +1,15 @@
+# Runtime dependencies for planit-spike.
+# Pinned to the versions verified working on 2026-07-16.
+#
+# NOTE: playwright also requires a one-time browser binary download that pip
+# does NOT install:  python -m playwright install chromium
+#
+# Install everything with:  pip install -r requirements.txt
+
+# --- Core Idox pipeline (also declared in pyproject.toml [project.dependencies]) ---
+httpx==0.28.1
+certifi==2026.06.17
+
+# --- Multi-portal proof-of-concept (Arun / Anglesey / BathNES) ---
+beautifulsoup4==4.15.0
+playwright==1.61.0

@@ -16,6 +16,10 @@ dependencies = [
 dev = [
     "pytest>=8.0",
 ]
+multi-portal = [
+    "beautifulsoup4>=4.12",
+    "playwright>=1.40",
+]
 
 [project.scripts]
 planit-spike = "planit_spike.cli:main"

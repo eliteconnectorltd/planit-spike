@@ -175,6 +175,22 @@ async def _fetch_one_document(
                         last_error = error
                         break
                     result.error = error
+                    # Distinguish a council-side "Document Unavailable" page (an
+                    # Idox 404 with an HTML body) from other 404s. The document
+                    # is genuinely not retrievable via this URL, so it is not a
+                    # transient failure — categorize it for the report. Body is
+                    # read only here, on the non-retryable give-up path.
+                    if response.status_code == 404 and "text/html" in (
+                        response.headers.get("content-type", "").lower()
+                    ):
+                        body = await response.aread()
+                        if b"document unavailable" in body[:4096].lower():
+                            result.download_status = "unavailable"
+                            result.notes = (
+                                "Council returned 'Document Unavailable' page "
+                                "(HTTP 404 with HTML). Document is not retrievable "
+                                "via this URL."
+                            )
                     logger.error(f"{tag} gave up after {attempt} attempts: {error}")
                     return result
 

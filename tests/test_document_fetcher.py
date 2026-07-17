@@ -411,6 +411,61 @@ def test_backoff_zero_base_never_sleeps():
     assert _backoff_seconds(2, 0.0) == 0.0
 
 
+# =============================================================================
+# GROUP G — "Document Unavailable" 404 categorization
+# =============================================================================
+
+def _html_404(body: bytes):
+    """A 404 text/html response carrying `body` (council error pages)."""
+    return httpx.Response(
+        404, content=body, headers={"content-type": "text/html; charset=UTF-8"}
+    )
+
+
+@pytest.mark.anyio
+async def test_404_document_unavailable_html_is_categorized_unavailable(tmp_path):
+    """A 404 whose HTML body says 'Document Unavailable' -> status 'unavailable'."""
+    body = (
+        b"<html><head><title>Idox</title></head><body>"
+        b"<h1>Document Unavailable</h1>"
+        b"<p>The requested document is not available.</p></body></html>"
+    )
+    handler = _SequenceHandler(_html_404(body))
+
+    results = await _run(handler, tmp_path, _links("https://h/files/K/doc.pdf"))
+
+    r = results[0]
+    assert r.ok is False                       # still not a success
+    assert r.error == "HTTP 404"               # error string retained
+    assert r.download_status == "unavailable"
+    assert r.notes == (
+        "Council returned 'Document Unavailable' page (HTTP 404 with HTML). "
+        "Document is not retrievable via this URL."
+    )
+    assert r.attempts == 1                      # 404 still does not retry
+    assert handler.calls == 1
+    assert results[0].saved_path is None        # nothing written
+
+
+@pytest.mark.anyio
+async def test_404_other_html_body_stays_failed_404(tmp_path):
+    """A 404 with a different HTML body (no 'Document Unavailable') is unchanged."""
+    body = (
+        b"<html><body><h1>Not Found</h1>"
+        b"<p>The page you requested could not be found.</p></body></html>"
+    )
+    handler = _SequenceHandler(_html_404(body))
+
+    results = await _run(handler, tmp_path, _links("https://h/files/K/doc.pdf"))
+
+    r = results[0]
+    assert r.ok is False
+    assert r.error == "HTTP 404"               # classic failure unchanged
+    assert r.download_status is None           # NOT categorized as unavailable
+    assert r.notes is None
+    assert r.attempts == 1
+
+
 @pytest.fixture
 def anyio_backend():
     return "asyncio"
